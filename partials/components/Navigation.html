@@ -8,9 +8,9 @@
 
 <div id="Navigation" ng-controller="NavigationController">
     <ul class="nav nav-tabs" role="tablist" >
-        <!--<li ng-class="{active:isActive('/about')}"><a href="#/about">About this site</a></li>-->
+        <li ng-class="{active:isActive('/welcome')}"><a href="#/welcome">Welcome</a></li>
         <li ng-class="{active:isActive('/gifts')}"><a href="#/gifts">Gifts ideas</a></li>
-        <li ng-class="{active:isActive('/more-information')}"><a href="#/more-information">Information</a></li>
+        <li ng-class="{active:isActive('/venue')}"><a href="#/venue">Venue</a></li>
         <li ng-if="isLoggedIn" ng-class="{active:isActive('/account-details')}"><a href="#/account-details"><span class="glyphicon glyphicon-dashboard"></span> My account dashboard</a></li>
     </ul>
 </div>

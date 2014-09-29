@@ -1,6 +1,7 @@
-var InformationController = function($scope, $rootScope)
+var WelcomeController = function($scope, $rootScope)
 {
-    $scope.url = 'https://wedding-gifts.firebaseio.com/location';
+
+    $scope.url = 'https://wedding-gifts.firebaseio.com/welcome';
     $scope.fireRef = new Firebase($scope.url);
 
     $scope.isLoggedIn;
@@ -15,12 +16,13 @@ var InformationController = function($scope, $rootScope)
 
                 locHTML = locHTML.substring(1);
                 locHTML = locHTML.substring(0, locHTML.length-1).toString();
-                $('#info').html(locHTML);
+                $('#welcome').html(locHTML);
                 $scope.fireRef.off("value");
             });
         }
     });
-    $scope.InformationController = function()
+
+    $scope.WelcomeController = function()
     {
 
     }();
