@@ -11,8 +11,8 @@ var LoginboxController = function($scope, $firebase, $rootScope)
     $scope.url = 'https://wedding-gifts.firebaseio.com';
     $scope.firebase = new Firebase($scope.url);
     $rootScope.authClient;
+    $rootScope.authUserObj;
 
-    $scope.user;
     $scope.pass;
 
     $scope.resetThePassword = function()
@@ -61,8 +61,6 @@ var LoginboxController = function($scope, $firebase, $rootScope)
             email: $scope.user,
             password: $scope.pass
         });
-
-        console.log("Login");
     }
 
     $scope.clickLogin = function()
@@ -122,12 +120,14 @@ var LoginboxController = function($scope, $firebase, $rootScope)
                 $scope.onLoginError(error);
 
                 $rootScope.isLoggedIn = false;
+                $rootScope.authUserObj = null;
 
                 if(!$rootScope.$$phase) $rootScope.$apply();
 
             } else if (user) {
+
                 $rootScope.isLoggedIn = true;
-                $scope.user = user.email;
+                $rootScope.authUserObj = user;
 
                 if(!$scope.$$phase) $scope.$apply();
                 if(!$rootScope.$$phase) $rootScope.$apply();

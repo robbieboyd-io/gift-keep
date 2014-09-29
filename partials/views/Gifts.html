@@ -1,8 +1,8 @@
 <ng-template ng-if="isLoggedIn">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="text-center">Gifts please</h1>
-            <p>Below is a list of items that Sam and Emma would love to have. Please don't feel obliged to bring a gift. Many of these items are offered at more than one outlet and the URL is merely provided to make it easier to locate.</p>
+            <br/>
+            <p class="lead">Below is a list of items that Sam and Emma would love to have. Please don't feel obliged to bring a gift. Many of these items are offered at more than one outlet and the URL is merely provided to make it easier to locate.</p>
         </div>
     </div>
 
@@ -15,8 +15,15 @@
                     <p><strong>{{gift['title']}}</strong></p>
                     <p>
                         <a class="btn btn-xs btn-primary" href="{{gift['link']}}" target="_blank">View this item</a>
-                        <button class="btn btn-xs btn-default" title="Reserve this" ng-click="reserveThis($index)" id="{{gift['id']}}" data-index="{{$index}}" ng-if='gift["reserved"] == false'>Reserve this</button>
-                        <button class="btn btn-xs btn-warning" title="Reserved" ng-click="unreserveThis($index)" id="{{gift['id']}}" data-index="{{$index}}" ng-if='gift["reserved"] == true' >Already reserved!</button>
+                        <ng-template  ng-if='gift["reserved"] == false'>
+                            <button class="btn btn-xs btn-default" title="Reserve this" ng-click="reserveThis($index)" id="{{gift['id']}}" data-index="{{$index}}">Reserve this</button>
+                        </ng-template>
+                        <ng-template  ng-if='(gift["reserved"] == true) && (authUserObj.uid != gift["uid"])'>
+                            <button class="btn btn-xs btn-warning" title="Reserved" ng-click="unreserveThis($index)" id="{{gift['id']}}" data-index="{{$index}}" disabled>Reserved by somebody else</button>
+                        </ng-template>
+                        <ng-template  ng-if='(gift["reserved"] == true) && (authUserObj.uid == gift["uid"])'>
+                            <button class="btn btn-xs btn-success" title="Reserved" ng-click="unreserveThis($index)" id="{{gift['id']}}" data-index="{{$index}}">You've reserved this</button>
+                        </ng-template>
                     </p>
                 </div>
             </div>

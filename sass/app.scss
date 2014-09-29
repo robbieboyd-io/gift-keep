@@ -9,32 +9,25 @@
   }
 }
 
+#mainView {
+  min-height:600px;
+  border-bottom:1px solid #ccc;
 
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+  h1 {
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+    border-bottom: 1px solid #eee;
+  }
 }
 
-.menu:before {
-  content: "[";
-}
 
-.menu:after {
-  content: "]";
-}
+#appFooter {
 
-.menu > li {
-  display: inline;
-}
+  text-align:center;
 
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
-}
+  padding:20px 0;
 
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+  li:first-child {
+    list-style: none;
+  }
 }
