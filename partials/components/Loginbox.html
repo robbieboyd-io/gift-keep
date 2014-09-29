@@ -1,0 +1,65 @@
+<div ng-controller="LoginboxController" id="Loginbox">
+    <ng-template ng-if="!isLoggedIn">
+        <ng-template ng-if="loginViewState == LOGIN">
+            <div class="row">
+                <div class="col-sm-4 col-md-4 col-lg-2">
+                    <div class="input-group input-group-sm" id="emailGroup">
+                        <span class="input-group-addon">Email</span>
+                        <input type="email" placeholder="" id="email" class="form-control">
+                    </div>
+                </div>
+
+                <div class="col-sm-4 col-md-4 col-lg-2">
+                    <div class="input-group input-group-sm" id="passwordGroup">
+                        <span class="input-group-addon">Password</span>
+                        <input type="password" placeholder="" id="password" class="form-control">
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <button class="btn btn-sm btn-default" ng-click="clickLogin()">Log in</button>
+                </div>
+            </div>
+            <div class="row">
+                <p class="small loginStateSwitch"><a title="Forgotten your password?" ng-click="loginStateSwitch(FORGOT_PASSWORD)">Forgotten your password?</a></p>
+            </div>
+        </ng-template>
+        <ng-template ng-if="loginViewState == FORGOT_PASSWORD">
+            <ng-template ng-if="passwordResetSuccess">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="alert alert-success" role="alert">Password reset sent to <strong>{{user}}</strong></div>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template ng-if="!passwordResetSuccess">
+                <div class="row">
+                    <div class="col-sm-4 col-md-4 col-lg-2">
+                        <div class="input-group input-group-sm" id="emailGroup">
+                            <span class="input-group-addon">Email</span>
+                            <input type="email" placeholder="" id="email" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-2">
+                        <button class="btn btn-sm btn-default" ng-click="resetThePassword()">Reset my password</button>
+                    </div>
+                </div>
+            </ng-template>
+
+            <div class="row">
+                <p class="small loginStateSwitch"><a title="Forgotten your password?" ng-click="loginStateSwitch(LOGIN)">I know my password</a></p>
+            </div>
+
+        </ng-template>
+
+    </ng-template>
+
+    <ng-template ng-if="isLoggedIn">
+        <div class="row">
+            <div class="col-lg-12">
+                Logged in as {{user}}<br />
+                <button class="btn btn-xs btn-default" title="Logout" ng-click="clickLogout()">Logout</button>
+            </div>
+        </div>
+    </ng-template>
+</div>
+

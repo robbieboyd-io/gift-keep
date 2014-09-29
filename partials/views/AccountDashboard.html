@@ -1,0 +1,45 @@
+<ng-template ng-if="isLoggedIn">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="text-center">My account dashboard</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Change my password</h3>
+                </div>
+                <div class="panel-body">
+                    <ng-template ng-if="updatedSuccessfully">
+                        <div class="alert alert-success" role="alert">Password changed successfully</div>
+                    </ng-template>
+                    <ng-template ng-if="passwordChangeErrorMessage.length > 0">
+                        <div class="alert alert-warning" role="alert">{{passwordChangeErrorMessage}}</div>
+                    </ng-template>
+
+
+                    <div class="input-group" id="emailAddressGroup">
+                        <span class="input-group-addon">Email address</span>
+                        <input type="email" class="form-control" placeholder="" id="emailAddress">
+                    </div>
+                    <br/>
+                    <div class="input-group" id="oldPassGroup">
+                        <span class="input-group-addon">Old password</span>
+                        <input type="password" class="form-control" placeholder="" id="oldPass">
+                    </div>
+                    <br/>
+                    <div class="input-group" id="newPassGroup">
+                        <span class="input-group-addon">New password</span>
+                        <input type="password" class="form-control" placeholder="" id="newPass">
+                    </div>
+                    <br/>
+                    <button class="btn btn-sm btn-default" ng-click="clickChangePassword()">Change password</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template ng-if="!isLoggedIn">
+    <h1>You need to be logged in to see this</h1>
+</ng-template>
