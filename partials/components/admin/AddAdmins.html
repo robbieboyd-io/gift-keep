@@ -1,0 +1,31 @@
+<ng-template ng-if="isLoggedIn">
+    <div id="addAdmins" ng-controller="AddAdminsController">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Add an admin</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label for="displayNameInput">Display name</label>
+                    <input type="text" class="form-control" id="displayNameInput" placeholder="Display name">
+                </div>
+                <div class="form-inline">
+                    <div class="form-group">
+                        <label for="providerInput">Provider</label>
+                        <input type="text" class="form-control" id="providerInput" placeholder="Provider">
+                    </div>
+                    <div class="form-group">
+                        <label for="providerIDInput">Provider ID</label>
+                        <input type="text" class="form-control" id="providerIDInput" placeholder="Provider ID">
+                    </div>
+                </div>
+
+                <br/>
+                <button class="btn btn-sm btn-default" ng-click="onAddUser()"><span class="glyphicon glyphicon-user"></span>&nbsp;Add</button>
+            </div>
+        </div>
+
+    </div>
+
+</ng-template>

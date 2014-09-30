@@ -39,6 +39,11 @@
             </div>
         </div>
         <ng-template ng-if="isAdmin">
+            <div class="col-md-6 col-lg-6">
+                <div ng-include src="'/partials/components/admin/AddAdmins.html'"></div>
+            </div>
+        </ng-template>
+        <ng-template ng-if="isAdmin">
             <div class="col-md-12 col-lg-12">
                 <div ng-include src="'/partials/components/admin/GiftManagement.html'"></div>
             </div>
