@@ -38,6 +38,20 @@
                 </div>
             </div>
         </div>
+        <ng-template ng-if="isAdmin">
+
+            I am admin = {{isAdmin}}
+
+            <div class="col-md-12 col-lg-12">
+                <h3 class="lead">Add Gifts</h3>
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+
+                    </div>
+                </div>
+            </div>
+        </ng-template>
     </div>
 </ng-template>
 <ng-template ng-if="!isLoggedIn">

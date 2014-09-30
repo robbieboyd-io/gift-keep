@@ -2,7 +2,27 @@ var AccountDashboardController = function($scope, $location, $rootScope)
 {
     $rootScope.$watch('isLoggedIn', function()
     {
+        $scope.isAdmin = false;
         $scope.isLoggedIn = $rootScope.isLoggedIn;
+
+        if($scope.isLoggedIn)
+        {
+            $scope.url = 'https://wedding-gifts.firebaseio.com/users/'+$rootScope.authUserObj.provider+'-'+$rootScope.authUserObj.id;
+            $scope.fireRef = new Firebase($scope.url);
+
+            console.log($scope.url);
+
+            $scope.fireRef.on('value',function(snap){
+
+                if(snap.val() != null){
+                    $scope.isAdmin = true;
+                } else {
+                    $scope.isAdmin = false;
+                }
+
+                if(!$scope.$$phase) $scope.$apply();
+            });
+        }
     });
 
     $scope.newPassword;
