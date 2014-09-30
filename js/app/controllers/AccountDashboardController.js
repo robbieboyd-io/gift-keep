@@ -10,8 +10,6 @@ var AccountDashboardController = function($scope, $location, $rootScope)
             $scope.url = 'https://wedding-gifts.firebaseio.com/users/'+$rootScope.authUserObj.provider+'-'+$rootScope.authUserObj.id;
             $scope.fireRef = new Firebase($scope.url);
 
-            console.log($scope.url);
-
             $scope.fireRef.on('value',function(snap){
 
                 if(snap.val() != null){

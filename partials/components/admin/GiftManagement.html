@@ -1,0 +1,62 @@
+<ng-template ng-if="isLoggedIn">
+    <div id="giftManagement" ng-controller="GiftManagementController">
+
+        <h3 class="lead">Gift management</h3>
+        <p>Add and remove the gifts you would like. Be careful, when you click the <button class="btn btn-xs btn-danger" title="Remove this item"><span class="glyphicon glyphicon-remove"></span></button> the item is removed <strong>instantly</strong>.</p>
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Item name</th>
+                <th>Link</th>
+                <th>Picture</th>
+                <th>From</th>
+                <th>&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+
+                <tr ng-if="!addingNew">
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td><button class="btn btn-sm btn-success" title="Add another item" ng-click="clickAddNew()"><span class="glyphicon glyphicon-add"></span>&nbsp;Add another</button></td>
+                </tr>
+                <tr ng-if="addingNew">
+                    <td>
+                        <div class="form-group">
+                            <input type="text" placeholder="Item name" id="itemName" class="form-control">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" placeholder="Link to item" id="itemLink" class="form-control">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" placeholder="path to picture" id="itemPicture" class="form-control">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" placeholder="From" id="itemFrom" class="form-control">
+                        </div>
+                    </td>
+                    <td><button class="btn btn-sm btn-success" title="Add this item" ng-click="clickAddThis()"><span class="glyphicon glyphicon-plus"></span></button><button class="btn btn-sm btn-default" title="Add another item" ng-click="clickCancel()">Cancel</button></td>
+                </tr>
+
+                <tr ng-repeat="(key, gift) in gifts">
+                    <td>{{gift['title']}}</td>
+                    <td><a class="btn btn-sm btn-primary" href="{{gift['link']}}" target="_blank">View this item</a></td>
+                    <td><a class="btn btn-sm btn-default" href="{{gift['picture']}}" target="_blank" title="View item picture"><span class="glyphicon glyphicon-picture"></span>&nbsp;Image</a></td>
+                    <td>{{gift['from']}}</td>
+                    <td><button class="btn btn-sm btn-danger" title="Remove this item" id="{{gift['id']}}" data-index="{{$index}}" ng-click="removeThisItem(key)"><span class="glyphicon glyphicon-remove"></span></button></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</ng-template>

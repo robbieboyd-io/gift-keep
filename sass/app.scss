@@ -7,6 +7,16 @@
     padding: 10px 15px 0 15px;
     margin: 0;
   }
+
+  .input-group {
+    margin:5px 0;
+  }
+
+  @media (min-width: 768px) {
+    .input-group {
+      margin:0;
+    }
+  }
 }
 
 #mainView {
@@ -17,6 +27,12 @@
     padding-bottom: 9px;
     margin: 40px 0 20px;
     border-bottom: 1px solid #eee;
+  }
+}
+
+#giftManagement {
+  .form-group {
+    margin-bottom:0;
   }
 }
 

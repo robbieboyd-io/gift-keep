@@ -126,8 +126,6 @@ var LoginboxController = function($scope, $firebase, $rootScope)
 
             } else if (user) {
 
-                console.log(user);
-
                 /*
                 $scope.firebase.child('users').child(user.uid).set({
                     displayName: user.email,

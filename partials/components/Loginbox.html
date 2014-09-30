@@ -2,21 +2,21 @@
     <ng-template ng-if="!isLoggedIn">
         <ng-template ng-if="loginViewState == LOGIN">
             <div class="row">
-                <div class="col-sm-4 col-md-4 col-lg-2">
+                <div class="col-sm-4 col-md-4 col-lg-4">
                     <div class="input-group input-group-sm" id="emailGroup">
                         <span class="input-group-addon">Email</span>
                         <input type="email" placeholder="" id="email" class="form-control">
                     </div>
                 </div>
 
-                <div class="col-sm-4 col-md-4 col-lg-2">
+                <div class="col-sm-4 col-md-4 col-lg-3">
                     <div class="input-group input-group-sm" id="passwordGroup">
                         <span class="input-group-addon">Password</span>
                         <input type="password" placeholder="" id="password" class="form-control">
                     </div>
                 </div>
-                <div class="col-lg-2">
-                    <button class="btn btn-sm btn-default" ng-click="clickLogin()">Log in</button>
+                <div class="col-sm-2 col-md-2 col-lg-2">
+                    <button class="btn btn-sm btn-default btn-block" ng-click="clickLogin()">Log in</button>
                 </div>
             </div>
             <div class="row">

@@ -8,29 +8,44 @@
   padding: 10px 15px 0 15px;
   margin: 0;
 }
+/* line 11, ../sass/app.scss */
+#Loginbox .input-group {
+  margin: 5px 0;
+}
+@media (min-width: 768px) {
+  /* line 16, ../sass/app.scss */
+  #Loginbox .input-group {
+    margin: 0;
+  }
+}
 
-/* line 12, ../sass/app.scss */
+/* line 22, ../sass/app.scss */
 #mainView {
   min-height: 600px;
   border-bottom: 1px solid #ccc;
 }
-/* line 16, ../sass/app.scss */
+/* line 26, ../sass/app.scss */
 #mainView h1 {
   padding-bottom: 9px;
   margin: 40px 0 20px;
   border-bottom: 1px solid #eee;
 }
 
-/* line 24, ../sass/app.scss */
+/* line 34, ../sass/app.scss */
+#giftManagement .form-group {
+  margin-bottom: 0;
+}
+
+/* line 40, ../sass/app.scss */
 #appFooter {
   text-align: center;
   padding: 20px 0;
 }
-/* line 30, ../sass/app.scss */
+/* line 46, ../sass/app.scss */
 #appFooter li {
   display: inline;
 }
-/* line 34, ../sass/app.scss */
+/* line 50, ../sass/app.scss */
 #appFooter li:first-child {
   list-style: none;
 }
