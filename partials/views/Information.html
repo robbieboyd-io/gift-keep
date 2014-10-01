@@ -6,5 +6,5 @@
     </div>
 </ng-template>
 <ng-template ng-if="!isLoggedIn">
-    <h1>You need to be logged in to see this</h1>
+    <div ng-include src="'/partials/components/NeedLogin.html'"></div>
 </ng-template>
