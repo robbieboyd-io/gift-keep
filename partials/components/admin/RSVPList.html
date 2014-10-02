@@ -1,0 +1,30 @@
+<ng-template ng-if="isLoggedIn">
+    <div id="rsvpList" ng-controller="RSVPListController">
+        <p class="lead">RSVP list</p>
+        <p>This is the list of user accounts who have responded to RSVP.</p>
+        <ng-template ng-repeat="rsvp in rsvps">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <ng-template ng-if="rsvp['attending']">
+                        <span class="label label-success pull-right">Attending</span>
+                    </ng-template>
+                    <ng-template ng-if="!rsvp['attending']">
+                        <span class="label label-danger pull-right">Not attending</span>
+                    </ng-template>
+
+                    <h3 class="panel-title">{{rsvp['email']}}</h3>
+                </div>
+                <div class="panel-body">
+
+                    <p ng-if="rsvp['bringing'].length > 0">Bringing:</p>
+                    <ul>
+                        <li ng-repeat="person in rsvp['bringing']">{{person['displayName']}}</li>
+                    </ul>
+                    <p>Total <span class="label label-default">{{ amountBringing(rsvp['bringing']) }}</span></p>
+                </div>
+
+            </div>
+        </ng-template>
+    </div>
+</ng-template>
+

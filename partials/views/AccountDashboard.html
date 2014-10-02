@@ -1,7 +1,7 @@
 <ng-template ng-if="isLoggedIn">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="text-center">My account dashboard</h1>
+            <h4>My account dashboard</h4>
         </div>
     </div>
     <div class="row">
@@ -46,6 +46,11 @@
         <ng-template ng-if="isAdmin">
             <div class="col-md-12 col-lg-12">
                 <div ng-include src="'/partials/components/admin/GiftManagement.html'"></div>
+            </div>
+        </ng-template>
+        <ng-template ng-if="isAdmin">
+            <div class="col-md-12 col-lg-12">
+                <div ng-include src="'/partials/components/admin/RSVPList.html'"></div>
             </div>
         </ng-template>
     </div>

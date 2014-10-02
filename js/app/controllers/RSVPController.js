@@ -70,8 +70,6 @@ var RSVPController = function($scope, $firebase, $rootScope)
         ref.on("value", function(snap) {
 
             var data = snap.val();
-            console.log(data);
-
             $scope.beingBrought = data;
 
             if(!$scope.$$phase) $scope.$apply();
@@ -89,7 +87,8 @@ var RSVPController = function($scope, $firebase, $rootScope)
     {
         $scope.fireRef.set({
             email : $rootScope.authUserObj.email,
-            attending : true
+            attending : true,
+            answered : String(Date.now())
         });
 
         $scope.rsvpState = $scope.RSVP_ATTENNDING;
@@ -99,7 +98,8 @@ var RSVPController = function($scope, $firebase, $rootScope)
     {
         $scope.fireRef.set({
             email : $rootScope.authUserObj.email,
-            attending : false
+            attending : false,
+            answered : String(Date.now())
         });
 
         $scope.rsvpState = $scope.RSVP_NOT_ATTENNDING;

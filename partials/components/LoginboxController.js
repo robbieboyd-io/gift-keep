@@ -125,15 +125,6 @@ var LoginboxController = function($scope, $firebase, $rootScope)
                 if(!$rootScope.$$phase) $rootScope.$apply();
 
             } else if (user) {
-
-                console.log(user);
-                /*
-                $scope.firebase.child('users').child(user.uid).set({
-                    displayName: user.email,
-                    provider: user.provider,
-                    provider_id: user.id
-                });
-                */
                 $rootScope.isLoggedIn = true;
                 $rootScope.authUserObj = user;
 
