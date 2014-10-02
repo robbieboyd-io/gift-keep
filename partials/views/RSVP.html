@@ -11,7 +11,43 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <p>Confirm you are coming</p>
+                    <h4>Confirm you are coming</h4>
+                    <ng-template ng-if="rsvpState == RSVP_NOT_SET">
+                        <button class="btn btn-success" ng-click="confirmComing()">Yes, I am coming</button>&nbsp;<button class="btn btn-primary" ng-click="confirmNotComing()">No, thanks</button>
+                    </ng-template>
+                    <ng-template ng-if="rsvpState != RSVP_NOT_SET">
+                        <ng-template ng-if="rsvpState == RSVP_ATTENNDING">
+                            <button class="btn btn-success" disabled>Yes, I am coming</button>
+                        </ng-template>
+                        <ng-template ng-if="rsvpState == RSVP_NOT_ATTENNDING">
+                            <button class="btn btn-primary" disabled>No, thanks</button>
+                        </ng-template>
+                        <p><br/><a title="Change your response" ng-click="changeResponse()">Change your response</a></p>
+                        <!--<ng-template ng-if="rsvpState == RSVP_ATTENNDING">
+                            <hr />
+                            <p class="lead">I will be bringing:</p>
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Name" id="rsvpName" class="form-control">
+                                        </div>
+                                    </td>
+                                    <td><button class="btn btn-sm btn-success" title="Add this item" ng-click=""><span class="glyphicon glyphicon-plus"></span>&nbsp;Add</button></td>
+                                    <td><button class="btn btn-sm btn-default" title="Add another item" ng-click="clickCancel()">Cancel</button></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </ng-template>-->
+                    </ng-template>
                 </div>
             </div>
         </div>
