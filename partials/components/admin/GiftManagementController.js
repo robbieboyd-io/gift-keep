@@ -25,7 +25,7 @@ var GiftManagementController = function($scope, $rootScope)
 
     $scope.removeThisItem = function(key)
     {
-        $scope.fireRef.child(key).remove()
+        $scope.fireRef.child(key).remove();
     }
 
     $scope.clickAddNew = function()

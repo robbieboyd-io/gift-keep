@@ -23,14 +23,14 @@
                             <button class="btn btn-primary" disabled>No, thanks</button>
                         </ng-template>
                         <p><br/><a title="Change your response" ng-click="changeResponse()">Change your response</a></p>
-                        <!--<ng-template ng-if="rsvpState == RSVP_ATTENNDING">
+                        <ng-template ng-if="rsvpState == RSVP_ATTENNDING">
                             <hr />
                             <p class="lead">I will be bringing:</p>
+                            <p>Please add the names of you children, partner, spouse etc, that you wil be bringing with you.</p>
                             <table class="table table-hover">
                                 <thead>
                                 <tr>
                                     <th>Name</th>
-                                    <th>&nbsp;</th>
                                     <th>&nbsp;</th>
                                 </tr>
                                 </thead>
@@ -41,12 +41,18 @@
                                             <input type="text" placeholder="Name" id="rsvpName" class="form-control">
                                         </div>
                                     </td>
-                                    <td><button class="btn btn-sm btn-success" title="Add this item" ng-click=""><span class="glyphicon glyphicon-plus"></span>&nbsp;Add</button></td>
-                                    <td><button class="btn btn-sm btn-default" title="Add another item" ng-click="clickCancel()">Cancel</button></td>
+                                    <td><button class="btn btn-sm btn-success" title="Bring this person" ng-click="addSomeone()"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add</button></td>
+                                </tr>
+
+                                <tr ng-repeat="(key, person) in beingBrought">
+                                    <td>
+                                        {{person["displayName"]}}
+                                    </td>
+                                    <td><button class="btn btn-sm btn-danger" title="Remove this person" ng-click="removeSomeone(key)"><span class="glyphicon glyphicon-remove"></span>&nbsp;Remove</button></td>
                                 </tr>
                                 </tbody>
                             </table>
-                        </ng-template>-->
+                        </ng-template>
                     </ng-template>
                 </div>
             </div>

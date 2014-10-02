@@ -4,12 +4,14 @@ var RSVPController = function($scope, $firebase, $rootScope)
     $scope.RSVP_ATTENNDING = "rsvp_attending";
     $scope.RSVP_NOT_ATTENNDING = "rsvp_not_attending";
 
+    $scope.rsvpState = $scope.RSVP_NOT_SET;
+
     $scope.url = '';
     $scope.fireRef;
 
     $scope.isLoggedIn = false;
 
-    $scope.rsvpState = $scope.RSVP_NOT_SET;
+    $scope.beingBrought = [];
 
     $rootScope.$watch('isLoggedIn', function()
     {
@@ -23,12 +25,13 @@ var RSVPController = function($scope, $firebase, $rootScope)
             $scope.fireRef.on("value", function(snap) {
 
                 var data = snap.val();
-                console.log(snap.val());
                 if(data == null) {
                     $scope.rsvpState = $scope.RSVP_NOT_SET;
                 } else {
                     if(data.attending) {
                         $scope.rsvpState = $scope.RSVP_ATTENNDING;
+
+                        $scope.getBringing();
                     } else {
                         $scope.rsvpState = $scope.RSVP_NOT_ATTENNDING;
                     }
@@ -40,6 +43,21 @@ var RSVPController = function($scope, $firebase, $rootScope)
             if($scope.fireRef) $scope.fireRef.off("value");
         }
     });
+
+    $scope.getBringing = function()
+    {
+        var url = 'https://wedding-gifts.firebaseio.com/rsvp/'+$rootScope.authUserObj.uid+'/bringing';
+        var ref = new Firebase(url);
+        ref.on("value", function(snap) {
+
+            var data = snap.val();
+            console.log(data);
+
+            $scope.beingBrought = data;
+
+            if(!$scope.$$phase) $scope.$apply();
+        });
+    }
 
     $scope.changeResponse = function()
     {
@@ -66,6 +84,18 @@ var RSVPController = function($scope, $firebase, $rootScope)
         });
 
         $scope.rsvpState = $scope.RSVP_NOT_ATTENNDING;
+    }
+
+    $scope.removeSomeone = function(index)
+    {
+        $scope.fireRef.child('bringing').child(index).remove();
+    }
+
+    $scope.addSomeone = function()
+    {
+        $scope.fireRef.child('bringing').push({
+            displayName : $('#rsvpName').val()
+        });
     }
 
     $scope.RSVPController = function()
