@@ -1,10 +1,11 @@
 <ng-template ng-if="isLoggedIn">
-    <div class="row">
-        <div class="col-lg-12" id="welcome">
 
-        </div>
+    <div class="row" id="welcome">
+
     </div>
+
 </ng-template>
 <ng-template ng-if="!isLoggedIn">
     <div ng-include src="'/partials/components/NeedLogin.html'"></div>
 </ng-template>
+

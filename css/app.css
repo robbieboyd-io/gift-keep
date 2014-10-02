@@ -23,21 +23,29 @@
 }
 
 /*
+Main navigation
+*/
+/* line 29, ../sass/app.scss */
+#Navigation .navbar-brand {
+  color: #DD0000;
+}
+
+/*
   Main view
 */
-/* line 28, ../sass/app.scss */
+/* line 37, ../sass/app.scss */
 #mainView {
   min-height: 600px;
   border-bottom: 1px solid #ccc;
 }
-/* line 32, ../sass/app.scss */
+/* line 41, ../sass/app.scss */
 #mainView h1 {
   padding-bottom: 9px;
   margin: 40px 0 20px;
   border-bottom: 1px solid #eee;
 }
 
-/* line 40, ../sass/app.scss */
+/* line 49, ../sass/app.scss */
 #giftManagement .form-group {
   margin-bottom: 0;
 }
@@ -45,48 +53,55 @@
 /*
    Gift list
 */
-/* line 48, ../sass/app.scss */
-.gift-list {
+/* line 57, ../sass/app.scss */
+#giftList {
   -moz-column-count: 1;
   -webkit-column-count: 1;
   column-count: 1;
 }
 
 @media (min-width: 480px) {
-  /* line 55, ../sass/app.scss */
-  .gift-list {
+  /* line 64, ../sass/app.scss */
+  #giftList {
     -moz-column-count: 2;
     -webkit-column-count: 2;
     column-count: 2;
   }
 }
 @media (min-width: 768px) {
-  /* line 63, ../sass/app.scss */
-  .gift-list {
+  /* line 72, ../sass/app.scss */
+  #giftList {
     -moz-column-count: 3;
     -webkit-column-count: 3;
     column-count: 3;
   }
 }
-/* line 71, ../sass/app.scss */
+/* line 79, ../sass/app.scss */
 .gift-item {
   display: inline-block;
   width: 100%;
 }
 
+/* line 84, ../sass/app.scss */
+.gift-item-ie {
+  width: 33%;
+  float: left;
+  padding: 10px;
+}
+
 /*
   Main Footer
 */
-/* line 79, ../sass/app.scss */
+/* line 93, ../sass/app.scss */
 #appFooter {
   text-align: center;
   padding: 20px 0;
 }
-/* line 85, ../sass/app.scss */
+/* line 99, ../sass/app.scss */
 #appFooter li {
   display: inline;
 }
-/* line 89, ../sass/app.scss */
+/* line 103, ../sass/app.scss */
 #appFooter li:first-child {
   list-style: none;
 }
@@ -94,12 +109,12 @@
 /*
   Need to login component
 */
-/* line 97, ../sass/app.scss */
+/* line 111, ../sass/app.scss */
 #needLogin {
   margin: 20px 0;
 }
 
-/* line 101, ../sass/app.scss */
+/* line 115, ../sass/app.scss */
 a {
   white-space: pre-wrap;
   /* css-3 */
