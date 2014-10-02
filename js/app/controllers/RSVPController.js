@@ -96,6 +96,8 @@ var RSVPController = function($scope, $firebase, $rootScope)
         $scope.fireRef.child('bringing').push({
             displayName : $('#rsvpName').val()
         });
+
+        $('#rsvpName').val('');
     }
 
     $scope.RSVPController = function()
