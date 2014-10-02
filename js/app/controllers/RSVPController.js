@@ -18,35 +18,54 @@ var RSVPController = function($scope, $firebase, $rootScope)
         $scope.isLoggedIn = $rootScope.isLoggedIn;
 
         if($scope.isLoggedIn) {
-
-            $scope.url = 'https://wedding-gifts.firebaseio.com/rsvp/'+$rootScope.authUserObj.uid;
-            $scope.fireRef = new Firebase($scope.url);
-
-            $scope.fireRef.on("value", function(snap) {
-
-                var data = snap.val();
-                if(data == null) {
-                    $scope.rsvpState = $scope.RSVP_NOT_SET;
-                } else {
-                    if(data.attending) {
-                        $scope.rsvpState = $scope.RSVP_ATTENNDING;
-
-                        $scope.getBringing();
-                    } else {
-                        $scope.rsvpState = $scope.RSVP_NOT_ATTENNDING;
-                    }
-                }
-
-                if(!$scope.$$phase) $scope.$apply();
-            });
+            $scope.getRSVPList();
+            $scope.getIntro();
         } else {
             if($scope.fireRef) $scope.fireRef.off("value");
         }
     });
 
+    $scope.getIntro = function()
+    {
+        var url = 'https://wedding-gifts.firebaseio.com/rsvpintro/';
+        var firebase = new Firebase(url);
+        firebase.on("value", function(snap) {
+            var introHTML = snap.val();
+
+            introHTML = introHTML.substring(1);
+            introHTML = introHTML.substring(0, introHTML.length-1).toString();
+            $('#rsvpIntro').html(introHTML);
+            firebase.off("value");
+        });
+    }
+
+    $scope.getRSVPList = function()
+    {
+        $scope.url = 'https://wedding-gifts.firebaseio.com/rsvplist/'+$rootScope.authUserObj.uid;
+        $scope.fireRef = new Firebase($scope.url);
+
+        $scope.fireRef.on("value", function(snap) {
+
+            var data = snap.val();
+            if(data == null) {
+                $scope.rsvpState = $scope.RSVP_NOT_SET;
+            } else {
+                if(data.attending) {
+                    $scope.rsvpState = $scope.RSVP_ATTENNDING;
+
+                    $scope.getBringing();
+                } else {
+                    $scope.rsvpState = $scope.RSVP_NOT_ATTENNDING;
+                }
+            }
+
+            if(!$scope.$$phase) $scope.$apply();
+        });
+    }
+
     $scope.getBringing = function()
     {
-        var url = 'https://wedding-gifts.firebaseio.com/rsvp/'+$rootScope.authUserObj.uid+'/bringing';
+        var url = 'https://wedding-gifts.firebaseio.com/rsvplist/'+$rootScope.authUserObj.uid+'/bringing';
         var ref = new Firebase(url);
         ref.on("value", function(snap) {
 
