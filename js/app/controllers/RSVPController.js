@@ -112,11 +112,20 @@ var RSVPController = function($scope, $firebase, $rootScope)
 
     $scope.addSomeone = function()
     {
-        $scope.fireRef.child('bringing').push({
-            displayName : $('#rsvpName').val()
-        });
+        console.log($('#rsvpName').val() );
+        if($('#rsvpName').val().length > 0)
+        {
+            console.log('Add someone');
 
-        $('#rsvpName').val('');
+            $scope.fireRef.child('bringing').push({
+                displayName : $('#rsvpName').val()
+            });
+
+            $('#rsvpName').val('');
+            $('#rsvpNameGroup').removeClass('has-error');
+        } else {
+            $('#rsvpNameGroup').addClass('has-error');
+        }
     }
 
     $scope.RSVPController = function()
