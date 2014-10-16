@@ -10,5 +10,6 @@ config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/venue', {templateUrl: 'partials/views/Information.html', controller: 'InformationController'});
     $routeProvider.when('/rsvp', {templateUrl: 'partials/views/RSVP.html', controller: 'RSVPController'});
     $routeProvider.when('/account-details', {templateUrl: 'partials/views/AccountDashboard.html', controller: 'AccountDashboardController'});
+    $routeProvider.when('/gift-selector', {templateUrl: 'partials/views/GiftSelector.html', controller: 'GiftSelectorController'});
     $routeProvider.otherwise({redirectTo: '/welcome'});
 }]);

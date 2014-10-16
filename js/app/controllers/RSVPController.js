@@ -112,7 +112,6 @@ var RSVPController = function($scope, $firebase, $rootScope)
 
     $scope.addSomeone = function()
     {
-        console.log($('#rsvpName').val() );
         if($('#rsvpName').val().length > 0)
         {
             console.log('Add someone');
