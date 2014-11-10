@@ -1,0 +1,28 @@
+<ng-template ng-if="isLoggedIn">
+  <div class="panel panel-default" id="removeAccount" ng-controller="RemoveAccountController">
+    <div class="panel-heading">
+        <h3 class="panel-title">Remove my account</h3>
+    </div>
+    <div class="panel-body">
+        <p>You can remove your account permanently but any gifts you have reserved will not change their status and your RSVP will still be set. You will also need to request an invite to join again. This change <strong>cannot</strong> be undone.</p>
+        <!--<ng-template ng-if="updatedSuccessfully">
+            <div class="alert alert-success" role="alert">Password changed successfully</div>
+        </ng-template>
+        <ng-template ng-if="passwordChangeErrorMessage.length > 0">
+            <div class="alert alert-warning" role="alert">{{passwordChangeErrorMessage}}</div>
+        </ng-template>
+        -->
+        <div class="checkbox">
+            <label>
+              <input type="checkbox" id="confirmCheck" ng-change="onConfirmCheckChange()" ng-model="confirmDisplay"> Confirm
+            </label>
+          </div>
+        
+        <div class="form-group" id="confirmPasswordGroup">
+            <input type="password" class="form-control hide" id="confirmPassword" placeholder="Your password">
+        </div>
+        <button class="btn btn-sm btn-danger" ng-click="clickRemoveAccount()">Remove account</button>
+    </div>
+    </div>  
+</ng-template>
+

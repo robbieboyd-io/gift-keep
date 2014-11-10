@@ -2,22 +2,24 @@
     <ng-template ng-if="!isLoggedIn">
         <ng-template ng-if="loginViewState == LOGIN">
             <div class="row">
-                <div class="col-sm-4 col-md-4 col-lg-4">
-                    <div class="input-group input-group-sm" id="emailGroup">
-                        <span class="input-group-addon">Email</span>
-                        <input type="email" placeholder="" id="email" class="form-control">
+                <form>
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                        <div class="input-group input-group-sm" id="emailGroup">
+                            <span class="input-group-addon">Email</span>
+                            <input type="email" placeholder="" id="email" class="form-control">
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-sm-4 col-md-4 col-lg-3">
-                    <div class="input-group input-group-sm" id="passwordGroup">
-                        <span class="input-group-addon">Password</span>
-                        <input type="password" placeholder="" id="password" class="form-control">
+                    <div class="col-sm-4 col-md-4 col-lg-3">
+                        <div class="input-group input-group-sm" id="passwordGroup">
+                            <span class="input-group-addon">Password</span>
+                            <input type="password" placeholder="" id="password" class="form-control">
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-2 col-md-2 col-lg-2">
-                    <button class="btn btn-sm btn-default btn-block" ng-click="clickLogin()">Log in</button>
-                </div>
+                    <div class="col-sm-2 col-md-2 col-lg-2">
+                        <button class="btn btn-sm btn-default btn-block" ng-click="clickLogin()">Log in</button>
+                    </div>
+                </form>
             </div>
             <div class="row">
                 <p class="small loginStateSwitch"><a title="Forgotten your password?" ng-click="loginStateSwitch(FORGOT_PASSWORD)">Forgotten your password?</a></p>
