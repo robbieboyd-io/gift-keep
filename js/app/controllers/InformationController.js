@@ -1,4 +1,4 @@
-var InformationController = function($scope, $rootScope)
+var InformationController = function($scope, $rootScope, $location, $anchorScroll)
 {
     $scope.url = 'https://wedding-gifts.firebaseio.com/location';
     $scope.fireRef = new Firebase($scope.url);
@@ -17,9 +17,20 @@ var InformationController = function($scope, $rootScope)
                 locHTML = locHTML.substring(0, locHTML.length-1).toString();
                 $('#info').html(locHTML);
                 $scope.fireRef.off("value");
+                $("#moreInfo").on('click', $scope.scrollTo);
             });
         }
     });
+    
+    $scope.scrollTo = function(ev)
+    {
+        var eleId = $("#"+ev.currentTarget.id).data('to');
+        
+        var $target = $('#' + eleId);
+        var scrollPos = $target.offset().top;
+        $("body,html").animate({scrollTop: scrollPos}, "slow"); 
+    }
+    
     $scope.InformationController = function()
     {
 
